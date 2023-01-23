@@ -4,7 +4,6 @@ import br.com.gubee.ports.CreatePowerStatsPort;
 import br.com.gubee.ports.DeletePowerStatsPort;
 import br.com.gubee.ports.request.CreatePowerStatsRequestOut;
 import lombok.RequiredArgsConstructor;
-import model.PowerStats;
 import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;

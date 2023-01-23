@@ -21,7 +21,6 @@ public class FindHeroByNameController {
         try {
             return ResponseEntity.ok().body(findHeroByNameUseCase.findByName(name));
         } catch(Exception exception) {
-            exception.printStackTrace();
             return ResponseEntity.ok().build();
         }
     }

@@ -24,7 +24,6 @@ public class CompareTwoHeroesController {
         try {
             return ResponseEntity.ok().body(compareTwoHeroesUseCase.compareTwoHeroes(firstId, secondId));
         } catch (Exception exception) {
-            exception.printStackTrace();
             return ResponseEntity.notFound().build();
         }
     }

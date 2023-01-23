@@ -1,5 +1,6 @@
 package br.com.gubee.service;
 
+import br.com.gubee.annotation.DomainService;
 import br.com.gubee.ports.DeleteHeroPort;
 import br.com.gubee.ports.DeletePowerStatsPort;
 import br.com.gubee.ports.FindPowerStatsIdFromHeroPort;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Component;
 import java.util.UUID;
 
 @RequiredArgsConstructor
+@DomainService
 public class DeleteHeroService implements DeleteHeroUseCase {
 
     private final DeleteHeroPort deleteHeroPort;

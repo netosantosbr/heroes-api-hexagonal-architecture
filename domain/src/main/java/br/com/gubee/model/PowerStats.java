@@ -1,4 +1,4 @@
-package model;
+package br.com.gubee.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

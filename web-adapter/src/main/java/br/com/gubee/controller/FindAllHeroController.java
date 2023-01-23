@@ -26,7 +26,6 @@ public class FindAllHeroController {
         try{
             return ResponseEntity.ok().body(findAllHeroUseCase.findAll());
         } catch(Exception exception) {
-            exception.printStackTrace();
             return ResponseEntity.notFound().build();
         }
     }

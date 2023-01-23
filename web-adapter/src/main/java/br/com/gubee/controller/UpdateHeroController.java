@@ -24,7 +24,6 @@ public class UpdateHeroController {
             updateHeroUseCase.update(id, hero);
             return ResponseEntity.ok().build();
         } catch (Exception exception) {
-            exception.printStackTrace();
             return ResponseEntity.notFound().build();
         }
     }

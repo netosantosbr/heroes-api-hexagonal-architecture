@@ -1,5 +1,6 @@
 package br.com.gubee.service;
 
+import br.com.gubee.annotation.DomainService;
 import br.com.gubee.ports.CreateHeroPort;
 import br.com.gubee.ports.CreatePowerStatsPort;
 import br.com.gubee.ports.request.CreateHeroRequestOut;
@@ -7,12 +8,13 @@ import br.com.gubee.ports.request.CreatePowerStatsRequestOut;
 import br.com.gubee.usecase.CreateHeroUseCase;
 import br.com.gubee.usecase.request.CreateHeroRequest;
 import lombok.RequiredArgsConstructor;
-import model.Hero;
-import model.PowerStats;
+import br.com.gubee.model.Hero;
+import br.com.gubee.model.PowerStats;
 
 import java.util.UUID;
 
 @RequiredArgsConstructor
+@DomainService
 public class CreateHeroService implements CreateHeroUseCase {
 
     private final CreateHeroPort createHeroPort;

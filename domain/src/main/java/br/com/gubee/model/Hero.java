@@ -1,10 +1,10 @@
-package model;
+package br.com.gubee.model;
 
+import br.com.gubee.model.enums.Race;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import model.enums.Race;
 
 import java.time.Instant;
 import java.util.UUID;

@@ -3,7 +3,7 @@ package br.com.gubee.usecase.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import model.enums.Race;
+import br.com.gubee.model.enums.Race;
 
 import java.util.UUID;
 

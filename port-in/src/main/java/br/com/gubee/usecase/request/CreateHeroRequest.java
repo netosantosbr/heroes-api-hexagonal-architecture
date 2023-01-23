@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import model.enums.Race;
+import br.com.gubee.model.enums.Race;
 import org.hibernate.validator.constraints.Length;
 
 import javax.validation.constraints.Max;

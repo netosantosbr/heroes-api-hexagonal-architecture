@@ -24,7 +24,6 @@ public class FindHeroByIdController {
         try {
             return ResponseEntity.ok().body(findHeroByIdUseCase.findById(id));
         } catch(NoSuchElementException exception) {
-            exception.printStackTrace();
             return ResponseEntity.notFound().build();
         }
     }

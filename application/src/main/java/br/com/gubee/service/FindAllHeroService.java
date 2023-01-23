@@ -1,5 +1,6 @@
 package br.com.gubee.service;
 
+import br.com.gubee.annotation.DomainService;
 import br.com.gubee.ports.FindAllHeroPort;
 import br.com.gubee.ports.model.HeroRespPA;
 import br.com.gubee.usecase.FindAllHeroUseCase;
@@ -10,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RequiredArgsConstructor
+@DomainService
 public class FindAllHeroService implements FindAllHeroUseCase {
 
     private final FindAllHeroPort findAllHeroPort;

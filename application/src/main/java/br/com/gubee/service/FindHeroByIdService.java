@@ -1,5 +1,6 @@
 package br.com.gubee.service;
 
+import br.com.gubee.annotation.DomainService;
 import br.com.gubee.ports.FindHeroByIdPort;
 import br.com.gubee.ports.model.HeroRespPA;
 import br.com.gubee.usecase.FindHeroByIdUseCase;
@@ -9,6 +10,7 @@ import lombok.RequiredArgsConstructor;
 import java.util.UUID;
 
 @RequiredArgsConstructor
+@DomainService
 public class FindHeroByIdService implements FindHeroByIdUseCase {
 
     private final FindHeroByIdPort findHeroByIdPort;

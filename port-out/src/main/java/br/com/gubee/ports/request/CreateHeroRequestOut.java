@@ -3,7 +3,7 @@ package br.com.gubee.ports.request;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import model.enums.Race;
+import br.com.gubee.model.enums.Race;
 
 @Builder
 @AllArgsConstructor

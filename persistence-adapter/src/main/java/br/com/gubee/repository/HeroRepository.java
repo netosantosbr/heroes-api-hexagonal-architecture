@@ -5,7 +5,7 @@ import br.com.gubee.ports.model.HeroRespPA;
 import br.com.gubee.ports.*;
 import br.com.gubee.ports.request.CreateHeroRequestOut;
 import lombok.RequiredArgsConstructor;
-import model.enums.Race;
+import br.com.gubee.model.enums.Race;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
