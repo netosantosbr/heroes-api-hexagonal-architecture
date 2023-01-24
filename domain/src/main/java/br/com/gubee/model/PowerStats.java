@@ -31,4 +31,13 @@ public class PowerStats {
         this.intelligence = intelligence;
     }
 
+    public boolean validate() {
+        if( (this.strength < 0 || this.strength > 10) || (this.agility < 0 || this.agility > 10) ||
+        (this.dexterity < 0 || this.dexterity > 10) || (this.intelligence < 0 || this.intelligence > 10)) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
 }

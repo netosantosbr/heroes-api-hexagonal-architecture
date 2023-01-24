@@ -1,5 +1,6 @@
 package br.com.gubee.controller;
 
+
 import br.com.gubee.usecase.model.HeroRespIn;
 import br.com.gubee.usecase.FindAllHeroUseCase;
 import lombok.RequiredArgsConstructor;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
@@ -25,7 +27,7 @@ public class FindAllHeroController {
     public ResponseEntity<List<HeroRespIn>> findAll() {
         try{
             return ResponseEntity.ok().body(findAllHeroUseCase.findAll());
-        } catch(Exception exception) {
+        } catch(NoSuchElementException ex) {
             return ResponseEntity.notFound().build();
         }
     }

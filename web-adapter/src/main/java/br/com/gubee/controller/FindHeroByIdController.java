@@ -1,5 +1,6 @@
 package br.com.gubee.controller;
 
+
 import br.com.gubee.usecase.model.HeroRespIn;
 import br.com.gubee.usecase.FindHeroByIdUseCase;
 import lombok.RequiredArgsConstructor;
@@ -23,7 +24,7 @@ public class FindHeroByIdController {
     public ResponseEntity<HeroRespIn> findById(@PathVariable UUID id) {
         try {
             return ResponseEntity.ok().body(findHeroByIdUseCase.findById(id));
-        } catch(NoSuchElementException exception) {
+        } catch(NoSuchElementException ex) {
             return ResponseEntity.notFound().build();
         }
     }

@@ -2,7 +2,7 @@ package br.com.gubee.repository;
 
 import br.com.gubee.ports.CreatePowerStatsPort;
 import br.com.gubee.ports.DeletePowerStatsPort;
-import br.com.gubee.ports.request.CreatePowerStatsRequestOut;
+import br.com.gubee.ports.request.PersistPowerStatsCommand;
 import lombok.RequiredArgsConstructor;
 import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
@@ -31,7 +31,7 @@ public class PowerStatsRepository implements CreatePowerStatsPort, DeletePowerSt
     }
 
     @Override
-    public UUID create(CreatePowerStatsRequestOut powerStats) {
+    public UUID create(PersistPowerStatsCommand powerStats) {
         return namedParameterJdbcTemplate.queryForObject(
                 CREATE_POWER_STATS_QUERY,
                 new BeanPropertySqlParameterSource(powerStats),

@@ -1,10 +1,12 @@
 package br.com.gubee.controller;
 
 import br.com.gubee.usecase.CreateHeroUseCase;
+import br.com.gubee.usecase.command.CreateHeroCommand;
 import br.com.gubee.usecase.request.CreateHeroRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
@@ -23,7 +25,18 @@ public class CreateHeroController {
 
     @PostMapping(consumes = APPLICATION_JSON_VALUE)
     public ResponseEntity<Void> create(@Validated @RequestBody CreateHeroRequest createHeroRequest) {
-        UUID id = createHeroUseCase.create(createHeroRequest);
+        CreateHeroCommand command = fromHeroRequestToCommand(createHeroRequest);
+        UUID id = createHeroUseCase.create(command);
         return ResponseEntity.created(URI.create(format("/api/v1/heroes/%s", id))).build();
+    }
+
+    public CreateHeroCommand fromHeroRequestToCommand(CreateHeroRequest chr) {
+        return new CreateHeroCommand(
+                chr.getName(),
+                chr.getRace(),
+                chr.getStrength(),
+                chr.getAgility(),
+                chr.getDexterity(),
+                chr.getIntelligence());
     }
 }

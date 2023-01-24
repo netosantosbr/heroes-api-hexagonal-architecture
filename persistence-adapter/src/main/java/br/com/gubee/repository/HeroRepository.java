@@ -3,7 +3,7 @@ package br.com.gubee.repository;
 import br.com.gubee.ports.model.HeroCompareRespPA;
 import br.com.gubee.ports.model.HeroRespPA;
 import br.com.gubee.ports.*;
-import br.com.gubee.ports.request.CreateHeroRequestOut;
+import br.com.gubee.ports.request.PersistHeroCommand;
 import lombok.RequiredArgsConstructor;
 import br.com.gubee.model.enums.Race;
 import org.springframework.jdbc.core.RowMapper;
@@ -74,7 +74,7 @@ public class HeroRepository implements CompareTwoHeroesPort, CreateHeroPort,
     }
 
     @Override
-    public UUID create(CreateHeroRequestOut hero, UUID powerStatsUUID) {
+    public UUID create(PersistHeroCommand hero, UUID powerStatsUUID) {
         final Map<String, Object> params = Map.of("name", hero.getName(),
                 "race", hero.getRace().name(),
                 "powerStatsId", powerStatsUUID);

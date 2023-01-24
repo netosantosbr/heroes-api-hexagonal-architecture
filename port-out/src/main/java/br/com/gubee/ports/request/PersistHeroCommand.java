@@ -8,7 +8,7 @@ import br.com.gubee.model.enums.Race;
 @Builder
 @AllArgsConstructor
 @Data
-public class CreateHeroRequestOut {
+public class PersistHeroCommand {
     private String name;
     private Race race;
 }

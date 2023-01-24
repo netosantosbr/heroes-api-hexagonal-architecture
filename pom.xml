@@ -46,7 +46,7 @@
         <module>port-in</module>
         <module>port-out</module>
         <module>application</module>
-        <module>configuration</module>
+<!--        <module>configuration</module>-->
         <module>domain</module>
         <module>domain</module>
     </modules>

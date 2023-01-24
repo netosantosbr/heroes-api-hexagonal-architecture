@@ -1,11 +1,13 @@
 package br.com.gubee.controller;
 
+
 import br.com.gubee.usecase.model.HeroRespIn;
 import br.com.gubee.usecase.UpdateHeroUseCase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.NoSuchElementException;
 import java.util.UUID;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
@@ -23,7 +25,7 @@ public class UpdateHeroController {
         try {
             updateHeroUseCase.update(id, hero);
             return ResponseEntity.ok().build();
-        } catch (Exception exception) {
+        } catch (NoSuchElementException ex) {
             return ResponseEntity.notFound().build();
         }
     }

@@ -3,10 +3,12 @@ package br.com.gubee.service;
 import br.com.gubee.annotation.DomainService;
 import br.com.gubee.ports.CreateHeroPort;
 import br.com.gubee.ports.CreatePowerStatsPort;
-import br.com.gubee.ports.request.CreateHeroRequestOut;
-import br.com.gubee.ports.request.CreatePowerStatsRequestOut;
+import br.com.gubee.ports.request.PersistHeroCommand;
+import br.com.gubee.ports.request.PersistPowerStatsCommand;
+import br.com.gubee.service.exceptions.InvalidHeroException;
+import br.com.gubee.service.exceptions.InvalidPowerStatsException;
 import br.com.gubee.usecase.CreateHeroUseCase;
-import br.com.gubee.usecase.request.CreateHeroRequest;
+import br.com.gubee.usecase.command.CreateHeroCommand;
 import lombok.RequiredArgsConstructor;
 import br.com.gubee.model.Hero;
 import br.com.gubee.model.PowerStats;
@@ -21,11 +23,14 @@ public class CreateHeroService implements CreateHeroUseCase {
     private final CreatePowerStatsPort createPowerStatsPort;
 
     @Override
-    public UUID create(CreateHeroRequest createHeroRequest) {
-        PowerStats powerStats = new PowerStats(createHeroRequest.getStrength(),
-          createHeroRequest.getAgility(), createHeroRequest.getDexterity(), createHeroRequest.getIntelligence());
+    public UUID create(CreateHeroCommand createHeroCommand){
+        PowerStats powerStats = fromCommandToPowerStats(createHeroCommand);
 
-        UUID powerStatsId = createPowerStatsPort.create(CreatePowerStatsRequestOut.builder()
+        if(!powerStats.validate()) {
+            throw new InvalidPowerStatsException();
+        }
+
+        UUID powerStatsId = createPowerStatsPort.create(PersistPowerStatsCommand.builder()
                 .strength(powerStats.getStrength())
                 .agility(powerStats.getAgility())
                 .dexterity(powerStats.getDexterity())
@@ -33,13 +38,27 @@ public class CreateHeroService implements CreateHeroUseCase {
                 .build());
 
 
-        Hero hero = new Hero(createHeroRequest.getName(), createHeroRequest.getRace(), powerStatsId);
 
-        CreateHeroRequestOut createHeroRequestOut = CreateHeroRequestOut.builder()
+        Hero hero = fromCommandToHero(createHeroCommand, powerStatsId);
+
+        if(!hero.validate()) {
+            throw new InvalidHeroException();
+        }
+
+        PersistHeroCommand persistHeroCommand = PersistHeroCommand.builder()
                 .name(hero.getName())
                 .race(hero.getRace())
                 .build();
 
-        return createHeroPort.create(createHeroRequestOut, powerStatsId);
+        return createHeroPort.create(persistHeroCommand, powerStatsId);
+    }
+
+    public Hero fromCommandToHero(CreateHeroCommand cmd, UUID id) {
+        return new Hero(cmd.getName(), cmd.getRace(), id);
+    }
+
+    public PowerStats fromCommandToPowerStats(CreateHeroCommand cmd) {
+        return new PowerStats(cmd.getStrength(), cmd.getAgility(),
+                cmd.getDexterity(), cmd.getIntelligence());
     }
 }

@@ -2,7 +2,7 @@ package br.com.gubee.controller;
 
 import br.com.gubee.usecase.DeleteHeroUseCase;
 import lombok.RequiredArgsConstructor;
-import lombok.RequiredArgsConstructor;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,7 +23,7 @@ public class DeleteHeroController {
         try {
             deleteHeroUseCase.delete(id);
             return ResponseEntity.ok().build();
-        } catch(Exception exception) {
+        } catch(EmptyResultDataAccessException ex) {
             return ResponseEntity.notFound().build();
         }
     }

@@ -8,7 +8,7 @@ import lombok.Data;
 @Builder
 @Data
 @AllArgsConstructor
-public class CreatePowerStatsRequestOut {
+public class PersistPowerStatsCommand {
     private int strength;
     private int agility;
     private int dexterity;

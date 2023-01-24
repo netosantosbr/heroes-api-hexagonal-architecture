@@ -16,10 +16,11 @@ public class FindHeroByIdService implements FindHeroByIdUseCase {
     private final FindHeroByIdPort findHeroByIdPort;
 
     @Override
-    public HeroRespIn findById(UUID id) {
-        HeroRespPA heroRespWA = findHeroByIdPort.findById(id);
+    public HeroRespIn findById(UUID id){
+            HeroRespPA heroRespWA = findHeroByIdPort.findById(id);
 
-        return new HeroRespIn(heroRespWA.getId(), heroRespWA.getName(), heroRespWA.getRace(),
-                heroRespWA.getStrength(), heroRespWA.getAgility(), heroRespWA.getDexterity(), heroRespWA.getIntelligence());
+            return new HeroRespIn(heroRespWA.getId(), heroRespWA.getName(), heroRespWA.getRace(),
+                    heroRespWA.getStrength(), heroRespWA.getAgility(), heroRespWA.getDexterity(), heroRespWA.getIntelligence());
+
     }
 }

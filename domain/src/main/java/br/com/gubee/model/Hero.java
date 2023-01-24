@@ -37,4 +37,12 @@ public class Hero {
         this.name = name;
         this.race = race;
     }
+
+    public boolean validate() {
+        if( (this.name == null || this.name == "") || (this.race == null) || this.powerStatsId == null) {
+            return false;
+        } else {
+            return true;
+        }
+    }
 }
