@@ -25,10 +25,6 @@ public class FindAllHeroController {
 
     @GetMapping("/findAll")
     public ResponseEntity<List<HeroRespIn>> findAll() {
-        try{
-            return ResponseEntity.ok().body(findAllHeroUseCase.findAll());
-        } catch(NoSuchElementException ex) {
-            return ResponseEntity.notFound().build();
-        }
+        return ResponseEntity.ok().body(findAllHeroUseCase.findAll());
     }
 }

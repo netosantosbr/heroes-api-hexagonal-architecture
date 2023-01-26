@@ -97,15 +97,14 @@ public class HeroRepository implements CompareTwoHeroesPort, CreateHeroPort,
             @Override
             public HeroRespPA mapRow(ResultSet rs, int rowNum) throws SQLException {
 
-                HeroRespPA objectResponse = new HeroRespPA(
-                        UUID.fromString(rs.getString("id")),
-                        rs.getString("name"),
-                        Race.valueOf(rs.getString("race")),
-                        rs.getInt("strength"),
-                        rs.getInt("agility"),
-                        rs.getInt("dexterity"),
-                        rs.getInt("intelligence")
-                );
+                var objectResponse = new HeroRespPA()
+                        .setId(UUID.fromString(rs.getString("id")))
+                        .setName(rs.getString("name"))
+                        .setRace(Race.valueOf(rs.getString("race")))
+                        .setStrength(rs.getInt("strength"))
+                        .setAgility(rs.getInt("agility"))
+                        .setDexterity(rs.getInt("dexterity"))
+                        .setIntelligence(rs.getInt("intelligence"));
 
                 return objectResponse;
             }
@@ -121,15 +120,14 @@ public class HeroRepository implements CompareTwoHeroesPort, CreateHeroPort,
             @Override
             public HeroRespPA mapRow(ResultSet rs, int rowNum) throws SQLException {
 
-                HeroRespPA objectResponse = new HeroRespPA(
-                        UUID.fromString(rs.getString("id")),
-                        rs.getString("name"),
-                        Race.valueOf(rs.getString("race")),
-                        rs.getInt("strength"),
-                        rs.getInt("agility"),
-                        rs.getInt("dexterity"),
-                        rs.getInt("intelligence")
-                );
+                var objectResponse = new HeroRespPA()
+                        .setId(UUID.fromString(rs.getString("id")))
+                        .setName(rs.getString("name"))
+                        .setRace(Race.valueOf(rs.getString("race")))
+                        .setStrength(rs.getInt("strength"))
+                        .setAgility(rs.getInt("agility"))
+                        .setDexterity(rs.getInt("dexterity"))
+                        .setIntelligence(rs.getInt("intelligence"));
 
                 return objectResponse;
             }
@@ -148,16 +146,14 @@ public class HeroRepository implements CompareTwoHeroesPort, CreateHeroPort,
         RowMapper<HeroRespPA> rowMapper = new RowMapper<>() {
             @Override
             public HeroRespPA mapRow(ResultSet rs, int rowNum) throws SQLException {
-
-                HeroRespPA objectResponse = new HeroRespPA(
-                        UUID.fromString(rs.getString("id")),
-                        rs.getString("name"),
-                        Race.valueOf(rs.getString("race")),
-                        rs.getInt("strength"),
-                        rs.getInt("agility"),
-                        rs.getInt("dexterity"),
-                        rs.getInt("intelligence")
-                );
+                  var objectResponse = new HeroRespPA()
+                          .setId(UUID.fromString(rs.getString("id")))
+                          .setName(rs.getString("name"))
+                          .setRace(Race.valueOf(rs.getString("race")))
+                          .setStrength(rs.getInt("strength"))
+                          .setAgility(rs.getInt("agility"))
+                          .setDexterity(rs.getInt("dexterity"))
+                          .setIntelligence(rs.getInt("intelligence"));
 
                 return objectResponse;
             }

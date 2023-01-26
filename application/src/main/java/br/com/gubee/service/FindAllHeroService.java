@@ -21,10 +21,16 @@ public class FindAllHeroService implements FindAllHeroUseCase {
         List<HeroRespIn> convertedHeroesList = new ArrayList<>();
         List<HeroRespPA> heroesList = findAllHeroPort.findAll();
 
-        for(HeroRespPA hero : heroesList) {
+        for(var hero : heroesList) {
             convertedHeroesList.add(
-                    new HeroRespIn(hero.getId(), hero.getName(), hero.getRace(),
-                            hero.getStrength(), hero.getAgility(), hero.getDexterity(), hero.getIntelligence()));
+                    new HeroRespIn()
+                            .setId(hero.getId())
+                            .setName(hero.getName())
+                            .setRace(hero.getRace())
+                            .setStrength(hero.getStrength())
+                            .setAgility(hero.getAgility())
+                            .setDexterity(hero.getDexterity())
+                            .setIntelligence(hero.getIntelligence()));
         }
 
         return convertedHeroesList;

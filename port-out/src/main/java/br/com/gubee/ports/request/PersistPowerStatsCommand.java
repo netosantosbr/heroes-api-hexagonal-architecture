@@ -1,13 +1,11 @@
 package br.com.gubee.ports.request;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
+import lombok.*;
+import lombok.experimental.Accessors;
 
-
-@Builder
-@Data
-@AllArgsConstructor
+@Accessors(chain = true)
+@Getter
+@Setter
 public class PersistPowerStatsCommand {
     private int strength;
     private int agility;

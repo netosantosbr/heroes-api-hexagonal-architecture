@@ -31,12 +31,12 @@ public class CreateHeroController {
     }
 
     public CreateHeroCommand fromHeroRequestToCommand(CreateHeroRequest chr) {
-        return new CreateHeroCommand(
-                chr.getName(),
-                chr.getRace(),
-                chr.getStrength(),
-                chr.getAgility(),
-                chr.getDexterity(),
-                chr.getIntelligence());
+        return new CreateHeroCommand()
+                .setName(chr.getName())
+                .setRace(chr.getRace())
+                .setStrength(chr.getStrength())
+                .setAgility(chr.getAgility())
+                .setDexterity(chr.getDexterity())
+                .setIntelligence(chr.getIntelligence());
     }
 }

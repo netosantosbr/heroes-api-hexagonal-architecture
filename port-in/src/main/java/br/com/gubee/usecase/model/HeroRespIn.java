@@ -1,15 +1,14 @@
 package br.com.gubee.usecase.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import br.com.gubee.model.enums.Race;
+import lombok.experimental.Accessors;
 
 import java.util.UUID;
 
-@NoArgsConstructor
-@AllArgsConstructor
-@Data
+@Accessors(chain = true)
+@Getter
+@Setter
 public class HeroRespIn {
     private UUID id;
     private String name;

@@ -1,13 +1,12 @@
 package br.com.gubee.ports.request;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
+import lombok.*;
 import br.com.gubee.model.enums.Race;
+import lombok.experimental.Accessors;
 
-@Builder
-@AllArgsConstructor
-@Data
+@Accessors(chain = true)
+@Getter
+@Setter
 public class PersistHeroCommand {
     private String name;
     private Race race;

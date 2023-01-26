@@ -4,9 +4,11 @@ import br.com.gubee.annotation.DomainService;
 import br.com.gubee.ports.DeleteHeroPort;
 import br.com.gubee.ports.DeletePowerStatsPort;
 import br.com.gubee.ports.FindPowerStatsIdFromHeroPort;
+import br.com.gubee.service.exceptions.HeroNotFoundException;
 import br.com.gubee.usecase.DeleteHeroUseCase;
 import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Component;
 
 import java.util.UUID;
@@ -21,8 +23,12 @@ public class DeleteHeroService implements DeleteHeroUseCase {
 
     @Override
     public void delete(UUID id) {
-        UUID powerStatsIdFromHero = findPowerStatsIdFromHeroPort.findPowerStatsIdFromHero(id);
-        deleteHeroPort.delete(id);
-        deletePowerStatsPort.delete(powerStatsIdFromHero);
+        try {
+            var powerStatsIdFromHero = findPowerStatsIdFromHeroPort.findPowerStatsIdFromHero(id);
+            deleteHeroPort.delete(id);
+            deletePowerStatsPort.delete(powerStatsIdFromHero);
+        } catch (EmptyResultDataAccessException ex) {
+            throw new HeroNotFoundException();
+        }
     }
 }

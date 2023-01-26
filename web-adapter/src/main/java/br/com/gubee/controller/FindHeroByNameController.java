@@ -1,6 +1,7 @@
 package br.com.gubee.controller;
 
 
+import br.com.gubee.service.exceptions.HeroesContextException;
 import br.com.gubee.usecase.model.HeroRespIn;
 import br.com.gubee.usecase.FindHeroByNameUseCase;
 import lombok.RequiredArgsConstructor;
@@ -22,7 +23,7 @@ public class FindHeroByNameController {
     public ResponseEntity<List<HeroRespIn>> findByName(@RequestParam String name) {
         try {
             return ResponseEntity.ok().body(findHeroByNameUseCase.findByName(name));
-        } catch(NoSuchElementException ex) {
+        } catch(HeroesContextException hce) {
             return ResponseEntity.ok().build();
         }
     }

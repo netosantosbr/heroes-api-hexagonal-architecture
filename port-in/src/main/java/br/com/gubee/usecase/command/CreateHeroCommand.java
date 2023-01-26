@@ -1,12 +1,12 @@
 package br.com.gubee.usecase.command;
 
 import br.com.gubee.model.enums.Race;
-import br.com.gubee.usecase.request.CreateHeroRequest;
 import lombok.*;
+import lombok.experimental.Accessors;
 
-@AllArgsConstructor
-@NoArgsConstructor
-@Data
+@Accessors(chain = true)
+@Getter
+@Setter
 public class CreateHeroCommand {
     private String name;
     private Race race;

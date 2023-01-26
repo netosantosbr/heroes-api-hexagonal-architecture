@@ -24,31 +24,28 @@ public class CreateHeroService implements CreateHeroUseCase {
 
     @Override
     public UUID create(CreateHeroCommand createHeroCommand){
-        PowerStats powerStats = fromCommandToPowerStats(createHeroCommand);
+        var powerStats = fromCommandToPowerStats(createHeroCommand);
 
         if(!powerStats.validate()) {
             throw new InvalidPowerStatsException();
         }
 
-        UUID powerStatsId = createPowerStatsPort.create(PersistPowerStatsCommand.builder()
-                .strength(powerStats.getStrength())
-                .agility(powerStats.getAgility())
-                .dexterity(powerStats.getDexterity())
-                .intelligence(powerStats.getIntelligence())
-                .build());
+        var powerStatsId = createPowerStatsPort.create(new PersistPowerStatsCommand()
+                .setStrength(powerStats.getStrength())
+                .setAgility(powerStats.getAgility())
+                .setDexterity(powerStats.getDexterity())
+                .setIntelligence(powerStats.getIntelligence()));
 
 
-
-        Hero hero = fromCommandToHero(createHeroCommand, powerStatsId);
+        var hero = fromCommandToHero(createHeroCommand, powerStatsId);
 
         if(!hero.validate()) {
             throw new InvalidHeroException();
         }
 
-        PersistHeroCommand persistHeroCommand = PersistHeroCommand.builder()
-                .name(hero.getName())
-                .race(hero.getRace())
-                .build();
+        var persistHeroCommand = new PersistHeroCommand()
+                .setName(hero.getName())
+                .setRace(hero.getRace());
 
         return createHeroPort.create(persistHeroCommand, powerStatsId);
     }

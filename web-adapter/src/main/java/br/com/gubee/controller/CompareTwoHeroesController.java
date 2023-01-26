@@ -1,6 +1,7 @@
 package br.com.gubee.controller;
 
 
+import br.com.gubee.service.exceptions.HeroesContextException;
 import br.com.gubee.usecase.model.HeroCompareRespIn;
 import br.com.gubee.usecase.CompareTwoHeroesUseCase;
 import lombok.RequiredArgsConstructor;
@@ -25,7 +26,7 @@ public class CompareTwoHeroesController {
     public ResponseEntity<HeroCompareRespIn> compareTwoHeroes(@RequestParam UUID firstId, @RequestParam UUID secondId) {
         try {
             return ResponseEntity.ok().body(compareTwoHeroesUseCase.compareTwoHeroes(firstId, secondId));
-        } catch (NoSuchElementException ex) {
+        } catch (HeroesContextException hce) {
             return ResponseEntity.notFound().build();
         }
     }

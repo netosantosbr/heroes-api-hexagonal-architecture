@@ -1,5 +1,6 @@
 package br.com.gubee.controller;
 
+import br.com.gubee.service.exceptions.HeroesContextException;
 import br.com.gubee.usecase.DeleteHeroUseCase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -23,7 +24,7 @@ public class DeleteHeroController {
         try {
             deleteHeroUseCase.delete(id);
             return ResponseEntity.ok().build();
-        } catch(EmptyResultDataAccessException ex) {
+        } catch(HeroesContextException hce) {
             return ResponseEntity.notFound().build();
         }
     }

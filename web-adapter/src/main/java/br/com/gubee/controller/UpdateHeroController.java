@@ -1,6 +1,7 @@
 package br.com.gubee.controller;
 
 
+import br.com.gubee.service.exceptions.HeroesContextException;
 import br.com.gubee.usecase.model.HeroRespIn;
 import br.com.gubee.usecase.UpdateHeroUseCase;
 import lombok.RequiredArgsConstructor;
@@ -25,7 +26,7 @@ public class UpdateHeroController {
         try {
             updateHeroUseCase.update(id, hero);
             return ResponseEntity.ok().build();
-        } catch (NoSuchElementException ex) {
+        } catch (HeroesContextException hce) {
             return ResponseEntity.notFound().build();
         }
     }
