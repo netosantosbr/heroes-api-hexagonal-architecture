@@ -39,10 +39,9 @@ public class Hero {
     }
 
     public boolean validate() {
-        if( (this.name == null || this.name == "") || (this.race == null) || this.powerStatsId == null) {
-            return false;
-        } else {
+        if( !((this.name == null || this.name == "") || (this.race == null) || this.powerStatsId == null) ) {
             return true;
         }
+        return false;
     }
 }

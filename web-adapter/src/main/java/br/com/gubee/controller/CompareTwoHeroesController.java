@@ -1,14 +1,13 @@
 package br.com.gubee.controller;
 
 
-import br.com.gubee.service.exceptions.HeroesContextException;
+import br.com.gubee.exceptions.HeroesContextException;
 import br.com.gubee.usecase.model.HeroCompareRespIn;
 import br.com.gubee.usecase.CompareTwoHeroesUseCase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.NoSuchElementException;
 import java.util.UUID;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;

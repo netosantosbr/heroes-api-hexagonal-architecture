@@ -6,7 +6,7 @@ import br.com.gubee.ports.CreatePowerStatsPort;
 import br.com.gubee.ports.UpdateHeroPort;
 import br.com.gubee.ports.request.PersistHeroCommand;
 import br.com.gubee.ports.request.PersistPowerStatsCommand;
-import br.com.gubee.service.exceptions.HeroNotFoundException;
+import br.com.gubee.exceptions.HeroNotFoundException;
 import br.com.gubee.service.stubs.HeroRepositoryInMemory;
 import br.com.gubee.service.stubs.PowerStatsRepositoryInMemory;
 import br.com.gubee.usecase.model.HeroRespIn;

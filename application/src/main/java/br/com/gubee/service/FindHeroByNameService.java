@@ -3,7 +3,7 @@ package br.com.gubee.service;
 import br.com.gubee.annotation.DomainService;
 import br.com.gubee.ports.FindHeroByNamePort;
 import br.com.gubee.ports.model.HeroRespPA;
-import br.com.gubee.service.exceptions.HeroNotFoundException;
+import br.com.gubee.exceptions.HeroNotFoundException;
 import br.com.gubee.usecase.FindHeroByNameUseCase;
 import br.com.gubee.usecase.model.HeroRespIn;
 import lombok.RequiredArgsConstructor;
@@ -28,17 +28,15 @@ public class FindHeroByNameService implements FindHeroByNameUseCase {
             throw new HeroNotFoundException();
         }
 
-        for(HeroRespPA hero : heroesList) {
-            convertedHeroesList.add(
-                    new HeroRespIn()
-                            .setId(hero.getId())
-                            .setName(hero.getName())
-                            .setRace(hero.getRace())
-                            .setStrength(hero.getStrength())
-                            .setAgility(hero.getAgility())
-                            .setDexterity(hero.getDexterity())
-                            .setIntelligence(hero.getIntelligence()));
-        }
+        heroesList.forEach(hero -> convertedHeroesList.add(new HeroRespIn()
+                .setId(hero.getId())
+                .setName(hero.getName())
+                .setRace(hero.getRace())
+                .setStrength(hero.getStrength())
+                .setAgility(hero.getAgility())
+                .setDexterity(hero.getDexterity())
+                .setIntelligence(hero.getIntelligence())));
+
 
         return convertedHeroesList;
     }

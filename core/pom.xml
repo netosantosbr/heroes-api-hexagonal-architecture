@@ -43,30 +43,28 @@
         <dependency>
             <groupId>gubee</groupId>
             <artifactId>web-adapter</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
         </dependency>
 
         <dependency>
             <groupId>gubee</groupId>
             <artifactId>application</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
         </dependency>
 
         <dependency>
             <groupId>gubee</groupId>
             <artifactId>persistence-adapter</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
         </dependency>
-
 
         <dependency>
             <groupId>com.lmax</groupId>
             <artifactId>disruptor</artifactId>
         </dependency>
+
         <dependency>
             <groupId>org.flywaydb</groupId>
             <artifactId>flyway-core</artifactId>
         </dependency>
+
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
@@ -78,6 +76,7 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+
     </dependencies>
 
     <build>

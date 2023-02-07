@@ -1,4 +1,4 @@
-package br.com.gubee.service.exceptions;
+package br.com.gubee.exceptions;
 
 public class InvalidPowerStatsException extends HeroesContextException {
     public InvalidPowerStatsException() {

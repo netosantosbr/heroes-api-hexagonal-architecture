@@ -4,12 +4,10 @@ import br.com.gubee.annotation.DomainService;
 import br.com.gubee.ports.DeleteHeroPort;
 import br.com.gubee.ports.DeletePowerStatsPort;
 import br.com.gubee.ports.FindPowerStatsIdFromHeroPort;
-import br.com.gubee.service.exceptions.HeroNotFoundException;
+import br.com.gubee.exceptions.HeroNotFoundException;
 import br.com.gubee.usecase.DeleteHeroUseCase;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.dao.EmptyResultDataAccessException;
-import org.springframework.stereotype.Component;
 
 import java.util.UUID;
 

@@ -2,8 +2,7 @@ package br.com.gubee.service;
 
 import br.com.gubee.annotation.DomainService;
 import br.com.gubee.ports.CompareTwoHeroesPort;
-import br.com.gubee.ports.model.HeroCompareRespPA;
-import br.com.gubee.service.exceptions.HeroNotFoundException;
+import br.com.gubee.exceptions.HeroNotFoundException;
 import br.com.gubee.usecase.CompareTwoHeroesUseCase;
 import br.com.gubee.usecase.model.HeroCompareRespIn;
 import lombok.RequiredArgsConstructor;

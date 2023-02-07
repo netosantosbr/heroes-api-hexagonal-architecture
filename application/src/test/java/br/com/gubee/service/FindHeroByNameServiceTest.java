@@ -6,7 +6,7 @@ import br.com.gubee.ports.CreatePowerStatsPort;
 import br.com.gubee.ports.FindHeroByNamePort;
 import br.com.gubee.ports.request.PersistHeroCommand;
 import br.com.gubee.ports.request.PersistPowerStatsCommand;
-import br.com.gubee.service.exceptions.HeroNotFoundException;
+import br.com.gubee.exceptions.HeroNotFoundException;
 import br.com.gubee.service.stubs.HeroRepositoryInMemory;
 import br.com.gubee.service.stubs.PowerStatsRepositoryInMemory;
 import org.junit.jupiter.api.Test;

@@ -1,4 +1,4 @@
-package br.com.gubee.service.exceptions;
+package br.com.gubee.exceptions;
 
 public class InvalidHeroException extends HeroesContextException {
     public InvalidHeroException() {

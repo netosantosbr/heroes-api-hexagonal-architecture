@@ -3,7 +3,7 @@ package br.com.gubee.service;
 import br.com.gubee.annotation.DomainService;
 import br.com.gubee.ports.FindHeroByIdPort;
 import br.com.gubee.ports.model.HeroRespPA;
-import br.com.gubee.service.exceptions.HeroNotFoundException;
+import br.com.gubee.exceptions.HeroNotFoundException;
 import br.com.gubee.usecase.FindHeroByIdUseCase;
 import br.com.gubee.usecase.model.HeroRespIn;
 import lombok.RequiredArgsConstructor;

@@ -1,9 +1,8 @@
 package br.com.gubee.controller;
 
-import br.com.gubee.service.exceptions.HeroesContextException;
+import br.com.gubee.exceptions.HeroesContextException;
 import br.com.gubee.usecase.DeleteHeroUseCase;
 import lombok.RequiredArgsConstructor;
-import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
