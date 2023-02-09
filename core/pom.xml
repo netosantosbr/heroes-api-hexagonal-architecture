@@ -119,8 +119,10 @@
             <plugin>
                 <groupId>io.fabric8</groupId>
                 <artifactId>docker-maven-plugin</artifactId>
-                <version>0.31.0</version>
+<!--                <version>0.31.0</version>-->
+                <version>0.38.1</version>
                 <configuration>
+                    <dockerHost>tcp://localhost:2375</dockerHost>
                     <images>
                         <image>
                             <name>gubee/interview-postgres-it</name>
